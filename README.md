@@ -1,1 +1,1 @@
-# GoBugService
+# OAth Go Service
