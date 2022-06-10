@@ -24,5 +24,3 @@ func main() {
 	server := server.NewHTTPServer()
 	server.StartServer()
 }
-
-// Basic RestAPi in Go
