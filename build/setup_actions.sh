@@ -7,7 +7,3 @@ printf "Host githbut.com \n\t Hostname github.com \n\t StrictHostKeyChecking no 
 git config --global user.email "jctotalportal@gmail.com"
 git config --global user.name "Jonathan Cockrem"
 git config --global url."ssh://gi@github.com/".insteadOF "https//github.com/"
-
-eval $(ssh-agent -s)
-ssh-keyscan github.com > ~/.ssh/known_hosts
-ssh-add ~/.ssh/id_common
