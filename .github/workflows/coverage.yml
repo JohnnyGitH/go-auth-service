@@ -17,17 +17,10 @@ jobs:
           fetch-depth: 0
       
       - name: Get Go version from go.mod
-        run: echo "GO_VERSION=$(go list -f {{.GoVersion}} -m)" >> $GITHUN_ENV
+        run: echo "GO_VERSION=$(go list -f {{.GoVersion}} -m)" >> $GITHUB_ENV
       - uses: actions/setup-go@v3
         with:
           go-version: ${{ env.GO_VERSION }}
-      
-      - env:
-          GITHUB_SHA: ${{ github.sha }}
-          COMMON_KEY: ${{ secrets.ROBOTCONDOR_PRIVATE_KEY }}
-        run:
-          . ./build/setup_acton.sh
-          make cover
     
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master
