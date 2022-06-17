@@ -8,7 +8,7 @@ import (
 )
 
 type HTTPServer struct {
-	router *mux.Router
+	router *mux.Router // Gorilla/Mux for routing
 	http   *http.Server
 }
 
@@ -18,12 +18,12 @@ func NewHTTPServer() *HTTPServer {
 	}
 }
 
-func (hs *HTTPServer) RegisterHanderls() {
-	hs.router.Path("").Methods(http.MethodGet).HandlerFunc(handler.HomePage)
+func (hs *HTTPServer) RegisterHandlers() {
+	hs.router.Path("").Methods(http.MethodGet).HandlerFunc(handler.HomePage) // Routing to home Page
 
 }
 
 func (hs *HTTPServer) StartServer() {
-	hs.RegisterHanderls()
+	hs.RegisterHandlers()
 	http.ListenAndServe(":9000", nil)
 }
